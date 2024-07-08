@@ -2,7 +2,6 @@
 
 This page contains notes primarily from Adrian Cantrill’s [AWS Solutions Architect - Associate (SAA-C03)](https://learn.cantrill.io/p/aws-certified-solutions-architect-associate-saa-c03). These notes should enable you to answer most, if not all, of the questions you may encounter in the exam.
 
-Notes have been copied from Notion, so pictures are still invalid. 
 
 ### Additional Material:
 
@@ -14,7 +13,6 @@ Notes have been copied from Notion, so pictures are still invalid.
 
 ## Account and IAM **Basics**
 
-<aside>
 💡 **AWS Account:** Container for **identities** (users) and **resources.** 
 
 Account **root user** has full control over all of the AWS account and any resources created within in. The root user can’t be restricted. 
@@ -23,7 +21,6 @@ IAM **User Groups** and **Roles** can also be created and given full or limited 
 
 May be good practice to create multiple AWS Accounts for different uses (prod, dev, test).
 
-</aside>
 
 - Every AWS account comes with its own running copy of IAM, which is a database.
 - IAM is a globally resilient service, so any data is always secure across all AWS regions. (Exam Q)
@@ -79,7 +76,6 @@ May be good practice to create multiple AWS Accounts for different uses (prod, d
 
 ## Essential Characteristics of Cloud Computing
 
-<aside>
 💡 **On demand self-service:** A consumer can unilaterally provision computing capabilities, such as server time and network storage, as needed automatically without requiring human interaction with each service provider. 
 *Can provision capabilities as needed without requiring human interaction.*
 
@@ -108,11 +104,9 @@ be appropriated in any quantity at any time.
 
 `Usage is measured. Pay for what you consume.`
 
-</aside>
 
 ## Public vs Private vs Hybrid vs Multi Cloud
 
-<aside>
 💡 **Public cloud:** AWS, Azure, Google. Meet the essential characteristics of cloud computing. 
 
 **Multi-cloud:** Using more than one of the public cloud platforms. 
@@ -121,7 +115,6 @@ be appropriated in any quantity at any time.
 
 **Hybrid cloud:** Using **private** cloud and **public** cloud in cooperation as a single environment.
 
-</aside>
 
 ## Cloud Service Models
 
@@ -254,7 +247,7 @@ Resources:
 
 ## Public vs Private Services
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/41a4dd7e-2c7b-4101-b2f8-c9aca2909ea3/Untitled.png)
+![Untitled](img/Untitled.png)
 
 ## AWS Global Infrastructure
 
@@ -282,7 +275,6 @@ us-east-1a, us-east-1b, …, us-east-1f
 
 ## Virtual Private Cloud (VPC) Basics
 
-<aside>
 💡 A virtual network inside AWS
 
 **A VPC is within 1 account & 1 region** ❗
@@ -301,7 +293,6 @@ VPCs are created within a region. VPCs cannot communicate outside their network 
 
 ****Each subnet within a VPC is located within a AZ, and can never be changed. Default VPC is configured to have a subnet in every AZ. Each use a part of the IP range and cannot overlap. This is how a VPC is resilient.
 
-</aside>
 
 ### Default VPC Basic
 
@@ -329,7 +320,7 @@ VPCs are created within a region. VPCs cannot communicate outside their network 
 - Subnets assign public IPv4 addresses
 - Best practice not to use default VPC
 
-![Source: https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a0a34505-60f9-478a-bdb8-8921d173a3e9/Untitled.png)
+![Source: https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae](img/Untitled%201.png)
 
 Source: https://medium.com/awesome-cloud/aws-difference-between-security-groups-and-network-acls-adc632ea29ae
 
@@ -498,7 +489,7 @@ Outputs: # Outputs from the template being applied
 Used through other AWS services for health and performance monitoring, log management and nerveless architectures*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9f38f972-77bd-48b3-9da8-ea573765d805/Untitled.png)
+![Untitled](img/Untitled%202.png)
 
 - Collects and manages operational data
 - **Metrics -** AWS Products, Apps, on-premises
@@ -543,7 +534,7 @@ Used through other AWS services for health and performance monitoring, log manag
 > *The Shared Responsibility Model - is how AWS provide clarity around which areas of systems security are theirs, and which are owned by the customer.*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/286c69f3-8bc4-4581-b702-7fa809a793f3/Untitled.png)
+![Untitled](img/Untitled%203.png)
 
 - AWS responsible for the security of the cloud
     - Hardware/AWS Global Infrastructure
@@ -644,7 +635,7 @@ Used when FT and HA don’t work***
 
 ### DNS Resolution
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/da7a5fb6-fae0-407f-99f2-b6fc8d2560bf/Untitled.png)
+![Untitled](img/Untitled%204.png)
 
 ### ❗Remember these❗
 
@@ -728,7 +719,7 @@ Used when FT and HA don’t work***
     - **Authoritative:** Query results directly from [amazon.com](http://amazon.com) server
     - **Non-authoritative:** If another client queries the resolver within 3600 seconds, the resolver can immediately return the results of the query
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b377e42b-703e-41ef-8c6e-b928d27fd921/Untitled.png)
+    ![Untitled](img/Untitled%205.png)
     
 
 
@@ -899,7 +890,7 @@ arn:aws:s3:::catgifs/* # Objects in bucket
 > *Suitable for organization with multiple AWS accounts*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fe968cec-d135-46ea-94b5-99db129c8f4d/Untitled.png)
+![Untitled](img/Untitled%206.png)
 
 - Use a standard AWS account to create a AWS organization
     - This account will be the **management account** or **master account - can only be one**
@@ -919,7 +910,7 @@ arn:aws:s3:::catgifs/* # Objects in bucket
 **Management account is special and is unaffected by SCP!**
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0406df33-482e-402b-9564-78897263912a/Untitled.png)
+![Untitled](img/Untitled%207.png)
 
 - SCPs are **account permissions boundaries**
 - They limit what the account (including account root user) can do
@@ -935,7 +926,7 @@ arn:aws:s3:::catgifs/* # Objects in bucket
         - More overhead, may block access to services you don’t intend to block
 - Best practice is deny list architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cdc91135-8d3c-4b4d-b5f3-9fa71f6e4033/Untitled.png)
+![Untitled](img/Untitled%208.png)
 
 ## CloudWatch Logs
 
@@ -944,23 +935,21 @@ It is often the default place where AWS Services can output their logging too.
 CloudWatch Logs is a public service and can also be utilized in an on-premises environment and even from other public cloud platforms.*
 > 
 
-<aside>
 💡 **Public Service:** Usable from AWS or on-premises
 
-</aside>
 
 - **Store, Monitor** and **access** logging data
 - **AWS Integrations** - EC2, VPC Flow logs, Lambda, CloudTrail, R53 and more
 - **Metric filter:** Can generate metrics based on logs
 - Regional service
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/606f2253-517f-45a3-8c90-c2610947eab6/Untitled.png)
+![Untitled](img/Untitled%209.png)
 
 ## CloudTrail Essentials
 
 ### CloudTrail Basic
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/19ce6398-0905-4527-8fb7-ece02227a670/Untitled.png)
+![Untitled](img/Untitled%2010.png)
 
 - Logs API calls/activities as a **CloudTrail Event**
 - 90 days stored by default in **Event History**
@@ -991,7 +980,7 @@ CloudWatch Logs is a public service and can also be utilized in an on-premises e
 AWS Control Tower orchestration extends the capabilities of AWS Organizations. To help keep your organizations and accounts from drift, which is divergence from best practices, AWS Control Tower applies preventive and detective controls (guardrails). For example, you can use guardrails to help ensure that security logs and necessary cross-account access permissions are created, and not altered.*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/47f30df1-eac7-40e2-a721-d30b8b15be42/Untitled.png)
+![Untitled](img/Untitled%2011.png)
 
 - Quick and easy setup of multi-account environment
 - Orchestrates other AWS services to provide this functionality
@@ -1051,7 +1040,7 @@ AWS Control Tower orchestration extends the capabilities of AWS Organizations. T
 - ALLOW/DENY same or **different** accounts
 - ALLOW/DENY **anonymous** principals
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44ad4b6f-9a52-4f28-9b92-6347e33ccf9d/Untitled.png)
+    ![Untitled](img/Untitled%2012.png)
     
 
 ### Access Control Lists (ACLs)
@@ -1086,7 +1075,7 @@ AWS Control Tower orchestration extends the capabilities of AWS Organizations. T
 - **Offloading:** Large data files such as pictures can be saved in a static S3 bucket to offload the page being accessed
 - **Out-of-band pages:** During maintenance of a server, configure DNS to point at an error HTML page hosted at static S3.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/beae4d4e-3972-4592-9a1e-42c711ec85f4/Untitled.png)
+![Untitled](img/Untitled%2013.png)
 
 ### S3 Pricing
 
@@ -1170,7 +1159,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
 > **CMK - Customer Managed Keys**
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/667da27b-b152-4a7b-b219-c00f8d8abcab/Untitled.png)
+![Untitled](img/Untitled%2014.png)
 
 ### Data Encryption Keys (DEKs)
 
@@ -1259,7 +1248,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
         - You can control permissions and rotation
     - **Role separation!** S3 admin with full access can’t see the unencrypted version of objects - need access to the KMS key
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8abc5ed4-7d7f-4e4d-ac8c-2c4579532138/Untitled.png)
+        ![Untitled](img/Untitled%2015.png)
         
         | Method | Key Management | Encryption Processing | Extras |
         |  |  |  |  |
@@ -1269,7 +1258,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
         | SSE-KMS | S3 & KMS | S3 | Rotation Control
         Role Separation |
         
-        ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d966e7da-7f32-45cd-ae7e-5c71a013735c/Untitled.png)
+        ![Untitled](img/Untitled%2016.png)
         
         ### Bucket Default Encryption
         
@@ -1286,7 +1275,7 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
 
 ### S3 Standard
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/23de1e38-fb62-40ed-a66e-9c269dc931c0/Untitled.png)
+![Untitled](img/Untitled%2017.png)
 
 ### S3 Standard-IA (Infrequent Access)
 
@@ -1294,18 +1283,18 @@ Keys never leave KMS - Provides FIPS 140-2 (L2)**
 But, retrieval fee. Overall cost increases with frequent access.
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ea30143-cd02-4d89-97b6-faba4759e4cd/Untitled.png)
+![Untitled](img/Untitled%2018.png)
 
 ### S3 One Zone-IA
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/615d0a45-bb39-449b-a990-9dc233678217/Untitled.png)
+![Untitled](img/Untitled%2019.png)
 
 ### S3 Glacier Instant
 
 > Like S3 Standard-IA… cheaper storage, more expensive retrieval, longer minimum
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee3668a7-6d66-455f-b042-300aad0d2b41/Untitled.png)
+![Untitled](img/Untitled%2020.png)
 
 ### S3 Glacier Flexible
 
@@ -1313,18 +1302,18 @@ But, retrieval fee. Overall cost increases with frequent access.
 Objects cannot be made publicly accessible. Any Access of data requires a retrieval process.
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4a1559f2-9ff5-41fe-bd6e-4a65e4572dc0/Untitled.png)
+![Untitled](img/Untitled%2021.png)
 
 ### S3 Glacier Deep Archive
 
 > Cheapest alternative. LONG time to retrieve - hours to days.
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c7ca297-7b96-4167-8cc7-218d977d6461/Untitled.png)
+![Untitled](img/Untitled%2022.png)
 
 ### S3 Intelligent-Tiering
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a5f5421-b1a7-4b66-9430-fe9173ca3951/Untitled.png)
+![Untitled](img/Untitled%2023.png)
 
 ## S3 Lifecycle Configuration
 
@@ -1343,7 +1332,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
 > Sort of waterfall between the S3 Storage Classes
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3a9e66f9-dbed-4f7e-84ec-fa5537f62b87/Untitled.png)
+![Untitled](img/Untitled%2024.png)
 
 ## S3 Replication
 
@@ -1356,7 +1345,7 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
     - Role is not trusted by default since its configured by another account
     - Add bucket policy to allow role
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9f4c28f-a5fa-429b-af65-a0340f763461/Untitled.png)
+    ![Untitled](img/Untitled%2025.png)
     
 
 ### S3 Replication Options
@@ -1409,11 +1398,11 @@ Objects cannot be made publicly accessible. Any Access of data requires a retrie
 - Access denied could mean the generating ID **never had access**, or **doesn’t now**
 - **Don’t generate with a role**! URL stops working when the temporary credentials expire.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9f6c60d2-76fa-48f0-b8f8-6ef7fbd023e7/Untitled.png)
+![Untitled](img/Untitled%2026.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7b6ba640-7b65-4b3d-ae64-b2be2910e935/Untitled.png)
+![Untitled](img/Untitled%2027.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/341b0e18-4fba-4b0c-a484-3c25648b92a3/Untitled.png)
+![Untitled](img/Untitled%2028.png)
 
 ## S3 Select and Glacier Select
 
@@ -1428,7 +1417,7 @@ SQL-Like statement*
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20a35116-5cbc-4bd2-ae85-9125cdfbe7ac/Untitled.png)
+![Untitled](img/Untitled%2029.png)
 
 ## S3 Events
 
@@ -1446,14 +1435,14 @@ SQL-Like statement*
 - **Use EventBridge as default!**
     - Newer and adds support for more services and events
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/73c0c45e-6dac-4399-bb3e-cae30613d4d1/Untitled.png)
+![Untitled](img/Untitled%2030.png)
 
 ## S3 Access Logs
 
 > *Provides detailed records for the requests that are made to a bucket*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/94cf8014-b051-4b33-9dae-f2f27bb4b736/Untitled.png)
+![Untitled](img/Untitled%2031.png)
 
 ## S3 Object Lock
 
@@ -1486,7 +1475,7 @@ SQL-Like statement*
 - s3:PutObjectLegalHold is required to add or remove
 - Prevent accidental deletion of object version
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a1337274-040a-4004-867b-c91dc3fbfccc/Untitled.png)
+![Untitled](img/Untitled%2032.png)
 
 
 
@@ -1525,12 +1514,12 @@ SQL-Like statement*
 - Four tiers default
     - Web, app, db, spare
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/17d3193e-9e33-4b31-9aa2-e576ea17f22f/Untitled.png)
+    ![Untitled](img/Untitled%2033.png)
     
 
 ## **Custom VPCs**
 
-![VPC Design - End state](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ca0abb8-88e3-4a39-bcf9-5799763ad7ff/Untitled.png)
+![VPC Design - End state](img/Untitled%2034.png)
 
 VPC Design - End state
 
@@ -1615,11 +1604,11 @@ VPC Design - End state
 
 ### Using an IGW
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b29f193e-ab35-408c-b8f4-8599a2b37e33/Untitled.png)
+![Untitled](img/Untitled%2035.png)
 
 ### IPv4 Addresses with a IGW
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/01654682-37a6-4b24-b7a8-4b81bf68a215/Untitled.png)
+![Untitled](img/Untitled%2036.png)
 
 - **OS on EC2 is at no point aware of its public IPv4!**
 
@@ -1638,17 +1627,15 @@ VPC Design - End state
 > *TCP is a connection based protocol. A connection is established between two devices using a **random port** on a client and a **known port** on the server. Once established the connection is **bi-directional**. The “connection” is a reliable connection, provided via the segment encapsulated in IP packets.*
 > 
 
-<aside>
 💡 **HTTP: Port 80
 HTTPS: Port 443**
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45009c88-b718-4390-840c-5965672764aa/Untitled.png)
+![Untitled](img/Untitled%2037.png)
 
 ### Stateful vs Stateless Firewalls
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c1c018d1-6bc3-4690-a271-4e7c356c1832/Untitled.png)
+![Untitled](img/Untitled%2038.png)
 
 ### Stateless Firewalls
 
@@ -1656,14 +1643,14 @@ HTTPS: Port 443**
 2 Rules (1 OUT, 1 IN) per connection (outbound application)
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e24e956-3588-47f4-bb62-70677389e2c7/Untitled.png)
+![Untitled](img/Untitled%2039.png)
 
 ### Stateful Firewalls
 
 > *Intelligent enough to identify the request and response components of a connection as being related*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/87c4b2d2-b76a-481a-bccb-0c13b6fb3501/Untitled.png)
+![Untitled](img/Untitled%2040.png)
 
 ## Network Access Control Lists (NACL)
 
@@ -1671,7 +1658,7 @@ HTTPS: Port 443**
 Every subnet has an associated NACL
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c12670cf-3479-4aba-b458-c3aaaf77e6ba/Untitled.png)
+![Untitled](img/Untitled%2041.png)
 
 - **Inbound rules** and **Outbound rules.**
 - **Inbound:** Traffic entering the subnet
@@ -1680,7 +1667,7 @@ Every subnet has an associated NACL
 - Rules are processed in order, lowest rule number first. Once a match occurs, processing STOPS.
     - * is an implicit DENY if nothing else matches
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7f37700c-3e11-4a84-8ae2-102937bcca1d/Untitled.png)
+![Untitled](img/Untitled%2042.png)
 
 - NACLs are **STATELESS.** Both request and response need individual rules.
     - These rule-pairs (**app port** and **ephemeral ports)** are needed  on each NACL for each communication type which occurs
@@ -1720,11 +1707,9 @@ Every subnet has an associated NACL
 > *But.. SGs are not capable of explicitly blocking traffic - so often require assistance from NACLs*
 > 
 
-<aside>
 💡 **STATEFUL
 NO EXPLICIT DENY -** Need assistance from NACL
 
-</aside>
 
 - **STATEFUL** - detect response traffic automatically
 - Allowed (IN or OUT) request = allowed response
@@ -1741,14 +1726,14 @@ Any new instances which use the webSG are allowed to communicate with any instan
 Reduce admin overhead*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/60a02928-b7c1-4645-a3a9-329ad75a98e9/Untitled.png)
+![Untitled](img/Untitled%2043.png)
 
 ### SG Self References
 
 > Anything with the same security group can communicate
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bfa2a67-56b9-4b7b-9278-68b2e0c747e2/Untitled.png)
+![Untitled](img/Untitled%2044.png)
 
 ## Network Address Translation (NAT) and NAT Gateways
 
@@ -1763,7 +1748,7 @@ Reduce admin overhead*
 
 ### NAT Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1cfbdb8-390f-4080-a21e-5cee9e1a7707/Untitled.png)
+![Untitled](img/Untitled%2045.png)
 
 ### NAT Gateways
 
@@ -1779,11 +1764,11 @@ Reduce admin overhead*
 
 ### VPC Design - NATGW Full Resilience
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4d2b8d36-d76e-4961-95cf-20fbcbad6e59/Untitled.png)
+![Untitled](img/Untitled%2046.png)
 
 ### Nat Instance vs NAT Gateway
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a4eabc44-eaca-496f-9ca5-9256869bfd5a/Untitled.png)
+![Untitled](img/Untitled%2047.png)
 
 ### What about IPv6?
 
@@ -1806,15 +1791,13 @@ Reduce admin overhead*
 > *EC2 is virtualization as a Service (IaaS)*
 > 
 
-<aside>
 💡 **Virtualization** is running more than one operating system on a physical hardware or server
 **Kernel** is the only part of the operating system that is able to directly interact with the hardware (CPU & MEM, Network, Devices)
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/930552c0-3702-44d4-8df6-222a1cf46fd6/Untitled.png)
+![Untitled](img/Untitled%2048.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c9600d80-2b87-479b-9105-76b0cbd8bb5d/Untitled.png)
+![Untitled](img/Untitled%2049.png)
 
 ### Emulated Virtualization (Software Virtualization)
 
@@ -1824,7 +1807,7 @@ Reduce admin overhead*
     - Overwrite each other, crash
 - Slow!
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a96f10c0-2663-45b7-96bd-fdae9098d2bb/Untitled.png)
+![Untitled](img/Untitled%2050.png)
 
 ### Para-Virtualization
 
@@ -1832,13 +1815,13 @@ Reduce admin overhead*
     - Modified source code to call the hypervisor rather than the hardware
 - OS became *almost* aware of virtualization
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25d7fcea-9f3b-4377-9529-454af49cee82/Untitled.png)
+![Untitled](img/Untitled%2051.png)
 
 ### Hardware Assisted Virtualization
 
 - Hardware itself is aware of virtualization
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77e3590b-e4ad-47f2-8992-98389db4a0a9/Untitled.png)
+![Untitled](img/Untitled%2052.png)
 
 ### SR-IOV (Single Root IO Virtualization)
 
@@ -1847,7 +1830,7 @@ Reduce admin overhead*
 - Network card can present themself as multiple cards rather than one
 - Less CPU usage for the host CPU
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1eb8c49c-3b3b-49a2-896a-db3f9c44e1f3/Untitled.png)
+![Untitled](img/Untitled%2053.png)
 
 ## EC2 Architecture and Resilience
 
@@ -1858,7 +1841,7 @@ Reduce admin overhead*
 - Hosts = 1 AZ - AZ Fails, Host Fails, Instances Fails
 - **EBS: Elastic Block Storage**
 
-![EC2 Architecture ](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1c341c4b-dc21-470f-9d76-a31391bfb87b/Untitled.png)
+![EC2 Architecture ](img/Untitled%2054.png)
 
 EC2 Architecture 
 
@@ -1901,13 +1884,13 @@ EC2 Architecture
 **8xlarge** - Instance Size
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/26caeecb-185e-4cae-a77c-c060a8e2ad82/Untitled.png)
+![Untitled](img/Untitled%2055.png)
 
 https://aws.amazon.com/ec2/instance-types/
 
 https://instances.vantage.sh/
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb2a9032-13d8-4154-b648-5fb0c91eda96/Untitled.png)
+![Untitled](img/Untitled%2056.png)
 
 ## Storage Refresher
 
@@ -1952,7 +1935,7 @@ https://instances.vantage.sh/
 - Different physical storage types, different sizes, different performance profiles.
 - Billed based on **GB-month** (and is some cases performance)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9502dbd-1618-467e-986e-fa6ee4d4b43e/Untitled.png)
+![Untitled](img/Untitled%2057.png)
 
 ## EBS Volume Types - General Purpose SSD
 
@@ -2010,7 +1993,7 @@ https://instances.vantage.sh/
     - io2 - 160000 IOPS & 4750 MB
     - io2 Block Express - 260000 IOPS & 7500 MB/s
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f22dc720-0397-451b-aa85-21401b2d50f9/Untitled.png)
+    ![Untitled](img/Untitled%2058.png)
     
 
 ## HDD-Based
@@ -2056,7 +2039,7 @@ https://instances.vantage.sh/
 - **ATTACH AT LAUNCH!**
     - Can’t be added after launch
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7ec2b29f-0a27-475d-96c8-111b17134d8c/Untitled.png)
+![Untitled](img/Untitled%2059.png)
 
 - When instances move across volumes their storage will be blank
     - Stop and start will migrate to a new host
@@ -2217,12 +2200,10 @@ sudo file -s /dev/nvme1n1
 > *By default no encryption is applied. This adds risk - encryption helps mitigate this risk.*
 > 
 
-<aside>
 💡 Data only exist in encrypted form on the volume. 
 Plaintext data only ever exist in the memory of the EC2 host
 KMS Keys - aws/ebs or customer managed
 
-</aside>
 
 ### Key Concepts
 
@@ -2347,7 +2328,7 @@ sudo rm /tmp/db.setup
 
 ### AMI Lifecycle
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/692e9178-6307-4795-aefd-6e7a4007c4c4/Untitled.png)
+![Untitled](img/Untitled%2060.png)
 
 ### Key Concepts
 
@@ -2560,12 +2541,10 @@ Relogin
 
 ### Termination Protection
 
-<aside>
 💡 Termination Protection is a feature which adds an attribute to EC2 instances meaning they cannot be terminated while the flag is enabled.
 
 It provides protection against unintended termination and also allows role separation, where junior admins can be allowed to terminate but ONLY for instances with no protection attribute set.
 
-</aside>
 
 ## Horizontal and Vertical Scaling
 
@@ -2628,11 +2607,11 @@ Adding or removing resources to a system*
 
 ### Virtualization Problems
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb251813-ddeb-4740-a464-bf12fe9ff665/Untitled.png)
+![Untitled](img/Untitled%2061.png)
 
 ### Containerization
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/30b22c7c-5fe7-4d9f-9336-bcb9e8fc26a9/Untitled.png)
+![Untitled](img/Untitled%2062.png)
 
 ### Image Anatomy
 
@@ -2648,11 +2627,11 @@ Adding or removing resources to a system*
 - Running copy of a docker image with one difference - **one additional read/write layer**
     - Anything happening during running is only stored in this layer
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1da07b88-110e-43fd-a871-372b74fc2f7b/Untitled.png)
+![Untitled](img/Untitled%2063.png)
 
 ### Container Registry (e.g. Docker Hub)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df7dc5b5-7dd1-4e63-aa8c-79e2f065a08b/Untitled.png)
+![Untitled](img/Untitled%2064.png)
 
 ### Container Key Concepts
 
@@ -2671,7 +2650,7 @@ Adding or removing resources to a system*
 
 ### ECS
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9f3ab1b-52cd-45ac-918f-d65e83c6ffa6/Untitled.png)
+![Untitled](img/Untitled%2065.png)
 
 - Runs in two modes
     - EC2
@@ -2724,7 +2703,7 @@ Adding or removing resources to a system*
 - **If you want to use containers, but need to manage the host the container is running on - EC2!**
     - Keep overhead and flexibility
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e316a134-407a-4570-a6f2-3a46c9133a7b/Untitled.png)
+![Untitled](img/Untitled%2066.png)
 
 ### Fargate Mode
 
@@ -2773,11 +2752,11 @@ Adding or removing resources to a system*
 
 ### Cluster Structure
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/01b18eb1-4609-4af2-ad92-d9c8c1146d27/Untitled.png)
+![Untitled](img/Untitled%2067.png)
 
 ### Cluster Detail
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/210bfbf3-c3ce-4d75-9be6-ff0c02eb2ab9/Untitled.png)
+![Untitled](img/Untitled%2068.png)
 
 ### Key Concepts
 
@@ -2810,7 +2789,7 @@ Kubernetes as a Service (KaaS?)*
     - Customer VPC
     - These will communicate
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9d0ff617-cca7-4ee0-a10b-7f31a6acc1aa/Untitled.png)
+![Untitled](img/Untitled%2069.png)
 
 
 
@@ -2830,7 +2809,7 @@ Kubernetes as a Service (KaaS?)*
 - **ONLY on launch**
 - EC2 doesn’t interpret, the OS needs to understand the User Data
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aa8b7f46-2930-43cd-8a1f-af442dc4bfc3/Untitled.png)
+    ![Untitled](img/Untitled%2070.png)
     
 
 ### User Data Key Points
@@ -2841,7 +2820,7 @@ Kubernetes as a Service (KaaS?)*
 - Can be modified when instance is stopped
 - But **only executed once at launch**
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1c26ab86-5537-4c9a-86e9-08cb157b4a3b/Untitled.png)
+    ![Untitled](img/Untitled%2071.png)
     
 
 ## Enhanced Bootstrapping with CFN-INIT
@@ -2862,13 +2841,13 @@ Kubernetes as a Service (KaaS?)*
 
 ### cfn-init
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57cb9361-326f-4bcd-973a-4c31a1d6c3c8/Untitled.png)
+![Untitled](img/Untitled%2072.png)
 
 ### CreationPolicy and Signals
 
 - `-e $?` = output of previous command
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/31320d35-6d60-4e73-998a-ce61f6461232/Untitled.png)
+![Untitled](img/Untitled%2073.png)
 
 ## EC2 Instance Roles & Profile
 
@@ -2921,7 +2900,7 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 - Plaintext and Ciphertext
 - Public Parameters - **Latest AMIs per region**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/57285f46-56f2-4a49-9607-e7ed51c2eed4/Untitled.png)
+![Untitled](img/Untitled%2074.png)
 
 ## System and Application Logging on EC2
 
@@ -2936,7 +2915,7 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 - CloudWatch Agent is required - runs inside the instance
     - Needs configuration and permissions
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/59728f5f-15cb-4b4b-b6a4-f68ade301db0/Untitled.png)
+![Untitled](img/Untitled%2075.png)
 
 ## EC2 Placement Groups
 
@@ -3009,9 +2988,9 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 - On-demand & Reserved options available
 - Host hardware has **physical sockets and cores**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9f2deb6d-1bf9-40cf-b1e8-965267730668/Untitled.png)
+![Untitled](img/Untitled%2076.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ee4883e-3625-4261-a8d3-69331e1c509b/Untitled.png)
+![Untitled](img/Untitled%2077.png)
 
 ### Limitations & Features
 
@@ -3058,10 +3037,8 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 > *A public hosted zone is a container that holds information about how you want to route traffic on the internet for a specific domain which is accessible from the public internet*
 > 
 
-<aside>
 💡 Two types of zones in R53: **Public** and **Private**
 
-</aside>
 
 ### R53 Hosted Zones
 
@@ -3081,7 +3058,7 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 - Resource Records (**RR**) created within the Hosted Zone
 - Externally registered domains can point at R53 Public Zone
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/837414c8-6e0c-4d48-a134-877512da16f3/Untitled.png)
+![Untitled](img/Untitled%2078.png)
 
 ## R53 Private Hosted Zones
 
@@ -3093,13 +3070,13 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 - Using **different accounts** is supported via **CLI/API**
 - Split-view (overlapping public & private) for **PUBLIC** and **INTERNAL** use with the same zone name
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c3bc240b-61c7-4034-9c01-8709aeb62778/Untitled.png)
+![Untitled](img/Untitled%2079.png)
 
 ### R53 Split View Hosted Zones
 
 - Public zone is a subset of the private zone, limiting access to some resources
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3586d0a7-a710-475a-8929-afcfe52b4759/Untitled.png)
+![Untitled](img/Untitled%2080.png)
 
 ## CNAME vs R53 Alias
 
@@ -3148,7 +3125,7 @@ aws ssm get-parameters-by-path --path /my-app/ --with-decryption # decrypt encry
 
   ****
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1265419b-f47d-4535-8c1d-f5b35cd7eb61/Untitled.png)
+![Untitled](img/Untitled%2081.png)
 
 ## ❗Failover: Active/Passive ❗
 
@@ -3171,7 +3148,7 @@ Use an active-passive failover configuration when you want a primary resource or
 > *Simple routing lets you configure standard DNS records, with no special Route 53 routing such as weighted or latency. With simple routing, you typically route traffic to a single resource, for example, to a web server for your website.*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5fc418d-f9e0-445b-a6cc-b30504df6383/Untitled.png)
+![Untitled](img/Untitled%2082.png)
 
 ## Routing Policy 2: Failover Routing
 
@@ -3179,62 +3156,52 @@ Use an active-passive failover configuration when you want a primary resource or
 1st of four routing policies*
 > 
 
-<aside>
 💡 Create two records of the same name and the same type. One is set to be the primary and the other is the secondary. This is the same as the simple policy except for the response. Route 53 knows the health of both instances. As long as the primary is healthy, it will respond with this one. If the health check with the primary fails, the backup will be returned instead. This is set to implement active - passive failover.
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fa3df665-6cf7-4fa9-8868-73f72b1d5111/Untitled.png)
+![Untitled](img/Untitled%2083.png)
 
 ## Routing Policy 3: ****Multi Value Routing****
 
 > *Multivalue answer routing lets you configure Amazon Route 53 to return multiple values, such as IP addresses for your web servers, in response to DNS queries. You can specify multiple values for almost any record, but multivalue answer routing also lets you check the health of each resource, so Route 53 returns only values for healthy resources*
 > 
 
-<aside>
 💡 Simple records use one name and multiple values in this record. These will be health checked and the unhealthy responses will automatically be removed. With multi-value, you can have multiple records with the same name and each of these records can have a health check. R53 using this method will respond to queries with any and all healthy records, but it removes any records that are marked as unhealthy from those responses. This removes the problem with simple routing where a single unhealthy record can make it through to your customers. Great alternative to simple routing when you need to improve the reliability, and it's an alternative to failover when you have more than two records to respond with, but don't want the complexity or the overhead of weighted routing.
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/db050a4f-a0df-4d86-aadd-058fea48f30f/Untitled.png)
+![Untitled](img/Untitled%2084.png)
 
 ## Routing Policy 4: Weighted Routing
 
 > *Weighted routing lets you associate multiple resources with a single domain name ([catagram.io](http://catagram.io/)) and choose how much traffic is routed to each resource. This can be useful for a variety of purposes, including load balancing and testing new versions of software.*
 > 
 
-<aside>
 💡 Create multiple records of the same name within the hosted zone. For each of those records, you provide a weighted value. The total weight is the same as the weight of all the records of the same name. If all of the parts of the same name are healthy, it will distribute the load based on the weight. If one of them fails its health check, it will be skipped over and over again until a good one gets hit. This can be used for migration to separate servers.
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5ba21f2-6c06-4a9b-8227-0d3b77ab59a5/Untitled.png)
+![Untitled](img/Untitled%2085.png)
 
 ## Routing Policy 5: Latency Routing
 
 > *If your application is hosted in multiple AWS Regions, you can improve performance for your users by serving their requests from the AWS Region that provides the lowest latency.*
 > 
 
-<aside>
 💡 Multiple records in a hosted zone can be created with the same name and same type. When a client request arrives, it knows which region the request comes from. It knows the lowest latency and will respond with the lowest latency.
 
-</aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/899aa58b-20e2-42ea-b6fd-4dd7e1f5d7cb/Untitled.png)
+![Untitled](img/Untitled%2086.png)
 
 ## Routing Policy 6: Geolocation Routing
 
 > *Geolocation routing lets you choose the resources that serve your traffic based on the geographic location of your users, meaning the location that DNS queries originate from.*
 > 
 
-<aside>
 💡 Focused to delivering results matching the query of your customers. The record will first be matched based on the country if possible. If this does not happen, the record will be checked based on the continent. Finally, if nothing matches again it will respond with the default response. This can be used for licensing rights. If overlapping regions occur, the priority will always go to the most specific or smallest region. The US will be chosen over the North America record.
 
-</aside>
 
 - Good for restricting content to a certain location
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d909ec37-efd3-4dc9-bf17-713da1501501/Untitled.png)
+![Untitled](img/Untitled%2087.png)
 
 ## Routing Policy 7: Geoproximity Routing
 
@@ -3245,7 +3212,7 @@ Use an active-passive failover configuration when you want a primary resource or
 - Define rules and a bias
     - Bias: + or - bias can be added to rules
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/af2bfee8-7035-4821-a070-444d5253d481/Untitled.png)
+![Untitled](img/Untitled%2088.png)
 
 ## R53 Interoperability
 
@@ -3261,18 +3228,18 @@ Use an active-passive failover configuration when you want a primary resource or
 
 ### R53: Both Roles
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f34ebc88-a321-4a50-b507-2f989febeaf5/Untitled.png)
+![Untitled](img/Untitled%2089.png)
 
 ### R53: Registrar Only
 
 > “Worst way to manage domains”
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0bbbdbb7-f177-410d-a730-519b637a6a50/Untitled.png)
+![Untitled](img/Untitled%2090.png)
 
 ### R53: Hosting Only
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/682fdc20-63df-468c-892a-50a72932d423/Untitled.png)
+![Untitled](img/Untitled%2091.png)
 
 
 
@@ -3280,7 +3247,6 @@ Use an active-passive failover configuration when you want a primary resource or
 
 ## ACID vs BASE
 
-<aside>
 💡 **CAP Theorem: Consistency, Availability, Partition Tolerant - *Choose two***
 
 **ACID: 
@@ -3294,7 +3260,6 @@ Use an active-passive failover configuration when you want a primary resource or
 **- Soft State:** Db doesn’t enforce consistency. Offload onto app/user
 **- Eventually:** Eventually consistent (wait long enough)
 
-</aside>
 
 - DynamoDB is BASE
 
@@ -3336,11 +3301,11 @@ Reasons to NOT host DB on EC2:
 
 ### RDS Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7dbb5872-3615-4505-86ac-7afaa11407fd/Untitled.png)
+![Untitled](img/Untitled%2092.png)
 
 ### RDS Database Instance
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7de28738-bda2-492a-ac5e-b40e6020cf68/Untitled.png)
+![Untitled](img/Untitled%2093.png)
 
 ## RDS Multi AZ
 
@@ -3354,7 +3319,7 @@ Reasons to NOT host DB on EC2:
 
 In case of failure of the primary DB, the CNAME points to the standby DB
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/833e8a80-6a01-4462-854b-1fcdf0a2fdac/Untitled.png)
+![Untitled](img/Untitled%2094.png)
 
 - **No Free-tier!** Extra cost for standby replica
 - Standby **can’t be directly used**
@@ -3433,7 +3398,7 @@ Every 5 minutes Transaction Logs is written to S3
 
 ### Read-Replica Architecture
 
-![Writes to replica after primary write is complete. ***Can*** be accessed for read operation, unlike Standby Replica. ](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4b17fc4-d7c6-4a80-a3a0-cd2d29a18874/Untitled.png)
+![Writes to replica after primary write is complete. ***Can*** be accessed for read operation, unlike Standby Replica. ](img/Untitled%2095.png)
 
 Writes to replica after primary write is complete. ***Can*** be accessed for read operation, unlike Standby Replica. 
 
@@ -3471,11 +3436,11 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - RDS Oracle supports integration with CloudHSM
 - Much stronger key controls (even from AWS)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd0e3400-a448-4053-82d0-2df22b3934f2/Untitled.png)
+![Untitled](img/Untitled%2096.png)
 
 ### Amazon RDS IAM Authentication
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c46a775a-0022-49f4-8f92-ece4be8b8d70/Untitled.png)
+![Untitled](img/Untitled%2097.png)
 
 ## Amazon Aurora Architecture
 
@@ -3503,7 +3468,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - Up to 15 different replicas to failover to
     - Quicker failover
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/605f0917-6524-4dab-bd33-d25116f5e9b3/Untitled.png)
+![Untitled](img/Untitled%2098.png)
 
 - All SSD Based - **high IOPS, low latency**
 - Storage is billed based on **what’s used**
@@ -3550,7 +3515,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 
 ### Aurora Serverless Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6552bbf0-731d-4e6c-8d58-6497cca773a5/Untitled.png)
+![Untitled](img/Untitled%2099.png)
 
 ### Aurora Serverless: Use Cases
 
@@ -3571,7 +3536,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 
 ### Aurora Global DB Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9eb8647a-b366-4fe6-ba19-75e9c216d08f/Untitled.png)
+![Untitled](img/Untitled%20100.png)
 
 ### Key Concepts
 
@@ -3602,7 +3567,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - App can initiate connection to one or both replicas
 - Changes are committed to the other replica in addition to storage
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d4fab539-8440-42a1-857a-1eb64f06bd96/Untitled.png)
+![Untitled](img/Untitled%20101.png)
 
 ## Database Migration Service (DMS)
 
@@ -3619,7 +3584,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9cf3a2de-7692-4d13-8f0d-a79f8ffe4dd2/Untitled.png)
+![Untitled](img/Untitled%20102.png)
 
 ### Schema Conversion Tool (SCT)
 
@@ -3671,7 +3636,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
     - Like S3
     - Lifecycle policies can be used with classes
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/925cb7ce-3ed9-4eed-92da-026e05fa6118/Untitled.png)
+![Untitled](img/Untitled%20103.png)
 
 ## AWS Backup
 
@@ -3700,7 +3665,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - **Scaling & Resilience**
 - Application services and **components**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/20171775-3ec5-48e5-a85e-13d3e3ebd884/Untitled.png)
+![Untitled](img/Untitled%20104.png)
 
 ### Tiers
 
@@ -3711,7 +3676,7 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
 - DB Tier
 - App Services
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/85a6ad14-5511-40ef-b5a5-82ac1cf8ed04/Untitled.png)
+![Untitled](img/Untitled%20105.png)
 
 ## Evolution of Elastic Load Balancers (ELB)
 
@@ -3740,15 +3705,15 @@ Writes to replica after primary write is complete. ***Can*** be accessed for rea
     - Subnets in two or more AZs
         - Pick only one subnet in each AZ
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eccd33c8-c097-4c7d-9efa-32c62965a077/Untitled.png)
+![Untitled](img/Untitled%20106.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bb8d9576-dd07-4097-9ef4-b4f03ec0fe14/Untitled.png)
+![Untitled](img/Untitled%20107.png)
 
 ### Cross-Zone LB
 
 Equally distribute load to instances across AZs
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/abb5248e-5138-442d-a13e-5d6a1d4cf492/Untitled.png)
+![Untitled](img/Untitled%20108.png)
 
 ### Key Points
 
@@ -3767,7 +3732,7 @@ Equally distribute load to instances across AZs
 > CLBs bad
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0746e592-6882-431c-b94b-3632a903540f/Untitled.png)
+![Untitled](img/Untitled%20109.png)
 
 ### Application Load Balancer (ALB)
 
@@ -3791,7 +3756,7 @@ Equally distribute load to instances across AZs
 - **Rule Conditions:** host-header, http-header, http-request-method, path-pattern, query-string and source-ip
 - **Actions:** forwards, redirects, fixed-response, authenticate-oids & authenticate-cognito
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/edef5091-745e-4c85-9963-782ad83251ce/Untitled.png)
+![Untitled](img/Untitled%20110.png)
 
 ### Network Load Balancer (NLB)
 
@@ -3840,7 +3805,7 @@ Equally distribute load to instances across AZs
 
 ### LC and LT Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6f90bb43-8076-4754-9d19-f160e5eb15fd/Untitled.png)
+![Untitled](img/Untitled%20111.png)
 
  
 
@@ -3854,11 +3819,11 @@ Equally distribute load to instances across AZs
 - Keep running instances at the **Desired capacity** by provisioning or **terminating** instances
 - **Scaling Policies** automate based on metrics
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e716b523-bcda-4b9b-922d-5ef17f7a2a90/Untitled.png)
+![Untitled](img/Untitled%20112.png)
 
 ### ASG Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8caec0c2-5d5a-450d-bfa3-69c4d318edd1/Untitled.png)
+![Untitled](img/Untitled%20113.png)
 
 ### Scaling Policies
 
@@ -3873,7 +3838,7 @@ Equally distribute load to instances across AZs
 
 ### ASG + Load Balancers
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/843f7253-544a-4571-b1f2-1d6e50b42c41/Untitled.png)
+![Untitled](img/Untitled%20114.png)
 
 ### Scaling Processes
 
@@ -3926,11 +3891,11 @@ Equally distribute load to instances across AZs
 
 ### ASG - Simple Scaling
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b872c67b-8528-416b-8029-f885ee7ba7ca/Untitled.png)
+![Untitled](img/Untitled%20115.png)
 
 ### ASG - Step Scaling
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/178be368-6d2c-48cc-9358-84764a751a24/Untitled.png)
+![Untitled](img/Untitled%20116.png)
 
 ## ASG Lifecycle Hooks
 
@@ -3943,7 +3908,7 @@ Equally distribute load to instances across AZs
     - or you resume the ASG process CompleteLifeCycleAction
 - EventBridge or SNS Notifications
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/97e7e1f8-7959-4094-923a-323048cc5d6b/Untitled.png)
+![Untitled](img/Untitled%20117.png)
 
 ## ASG Health Check Comparison - EC2 vs ELB
 
@@ -3975,11 +3940,11 @@ Equally distribute load to instances across AZs
 - Offload
     - HTTP from ELB to EC2 instances
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/928010e3-4111-437c-a387-b8cb5e467bbe/Untitled.png)
+![Untitled](img/Untitled%20118.png)
 
 ### Connection Stickiness
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0485e8f3-2ceb-43fe-91e6-9bbe6ec7a6eb/Untitled.png)
+![Untitled](img/Untitled%20119.png)
 
 ## Gateway Load Balancers (GWLB)
 
@@ -3988,7 +3953,7 @@ Equally distribute load to instances across AZs
 
 ### Why do we need GWLB?
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ff897530-8a5f-45b7-92c6-2f6a54d21a4c/Untitled.png)
+![Untitled](img/Untitled%20120.png)
 
 ### What is GWLB
 
@@ -4001,11 +3966,11 @@ Equally distribute load to instances across AZs
 
 ### How it works
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f384eb8f-af15-466a-ab32-d3c4aeea8c19/Untitled.png)
+![Untitled](img/Untitled%20121.png)
 
 ### GWLB Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/993c6b28-ecb0-4505-a39a-079692ac1c4f/Untitled.png)
+![Untitled](img/Untitled%20122.png)
 
 
 
@@ -4039,7 +4004,7 @@ Equally distribute load to instances across AZs
 
 ### Microservice Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4adff8f0-f880-48a8-a166-02a163f1e618/Untitled.png)
+![Untitled](img/Untitled%20123.png)
 
 ### Event Driven Architecture
 
@@ -4050,7 +4015,7 @@ Equally distribute load to instances across AZs
     - **actions are taken** and the system returns to waiting
 - Mature event-driven architecture **only consumes resources while handling events** (serverless)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ebb41777-4211-481e-8839-bf38fd4d0a15/Untitled.png)
+![Untitled](img/Untitled%20124.png)
 
 ## AWS Lambda
 
@@ -4067,7 +4032,7 @@ Equally distribute load to instances across AZs
 > *Exam tip: Docker - not lambda*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e4c7320-a3ca-4a35-8eb7-3768c287d8e1/Untitled.png)
+![Untitled](img/Untitled%20125.png)
 
 ### Common Uses
 
@@ -4085,17 +4050,17 @@ Equally distribute load to instances across AZs
 
 - **By default** lambda function are given public networking. They can access **public AWS services** and the **public internet**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bd4ff946-29de-4e02-8766-51f0bd22c606/Untitled.png)
+![Untitled](img/Untitled%20126.png)
 
 ### Private Lambda Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7d936fe-2764-46c0-adff-b6430c698473/Untitled.png)
+![Untitled](img/Untitled%20127.png)
 
 ### Security
 
 - Resource policies can only be changed via CLI or API
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/113bca97-791b-4b25-82a8-695f0376f03b/Untitled.png)
+![Untitled](img/Untitled%20128.png)
 
 ### Logging
 
@@ -4116,15 +4081,15 @@ Equally distribute load to instances across AZs
 
 - **Handle errors or retries on client-side**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/58e875f2-7f52-4f7f-9367-1147e1cbeb41/Untitled.png)
+![Untitled](img/Untitled%20129.png)
 
 ### Asynchronous
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7f21a621-58e6-4d31-806c-fff8d12b640b/Untitled.png)
+![Untitled](img/Untitled%20130.png)
 
 ### Event Source Mapping
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c408590-86fd-46aa-b9f3-7fe905f4ab32/Untitled.png)
+![Untitled](img/Untitled%20131.png)
 
 ### Versions
 
@@ -4136,7 +4101,7 @@ Equally distribute load to instances across AZs
 
 ### Startup Times
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c65124f-c5d6-46fc-b195-fe80f94f496e/Untitled.png)
+![Untitled](img/Untitled%20132.png)
 
 ## CloudWatchEvents and EventBridge
 
@@ -4148,10 +4113,8 @@ Equally distribute load to instances across AZs
 > *They are also the source of scheduled events which can perform certain actions at certain times of day, days of the week, or multiple combinations of both - using the Unix CRON time expression format. Both services are one way how event driven architectures can be implemented within AWS.*
 > 
 
-<aside>
 💡 **EventBridge** is replacing **CloudWatchEvents**
 
-</aside>
 
 ### Key Concepts
 
@@ -4167,7 +4130,7 @@ Equally distribute load to instances across AZs
 
 ### EventBridge / CloudWatch Events
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bdde4b47-f098-4b72-b566-17bea091233d/Untitled.png)
+![Untitled](img/Untitled%20133.png)
 
 ## Serverless Architecture
 
@@ -4194,7 +4157,7 @@ Equally distribute load to instances across AZs
 
 ### Serverless Architecture Example
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/21370dae-2f6b-42fc-a8b9-58650a40d240/Untitled.png)
+![Untitled](img/Untitled%20134.png)
 
 ## Simple Notification Service (SNS)
 
@@ -4221,7 +4184,7 @@ Equally distribute load to instances across AZs
 - Server Side Encryption (**SSE**)
 - Cross-Account via **TOPIC Policy**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c679d6fa-2825-4110-ba7b-c1cc179e06d7/Untitled.png)
+![Untitled](img/Untitled%20135.png)
 
 ## Step Functions
 
@@ -4255,7 +4218,7 @@ Equally distribute load to instances across AZs
 - MAP
 - TASK (Lambda, Batch, DynamoDB, ECS, SNS, SQS, Glue, SageMaker, EMR, Step Functions)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e6e82b58-ef14-44b2-a4bb-ec7a1cbf487f/Untitled.png)
+![Untitled](img/Untitled%20136.png)
 
 ## API Gateway
 
@@ -4280,11 +4243,11 @@ Equally distribute load to instances across AZs
 
 ### OVERVIEW
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e4a7e526-7347-4751-9e86-690a9cb1ca07/Untitled.png)
+![Untitled](img/Untitled%20137.png)
 
 ### Authentication
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d6be4406-e5f4-4c8f-9b72-a7664e5aa3f3/Untitled.png)
+![Untitled](img/Untitled%20138.png)
 
 ### Endpoint Types
 
@@ -4294,14 +4257,12 @@ Equally distribute load to instances across AZs
 
 ### Stages
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3f92e3d-a068-427a-bb67-0ebe3306024a/Untitled.png)
+![Untitled](img/Untitled%20139.png)
 
 ### Errors
 
-<aside>
 💡 **Remember these!**
 
-</aside>
 
 - **4XX - Client Error** - Invalid request on **client** side
 - **5XX - Server Error** - Valid request, **backend issue**
@@ -4319,7 +4280,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - TTL Default 300 seconds (min 0, max 3600)
 - Can be encrypted
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7f47180a-9120-4eed-8e7d-e40f07ab34ad/Untitled.png)
+![Untitled](img/Untitled%20140.png)
 
 ## Simple Queue Service (SQS)
 
@@ -4342,7 +4303,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - Like resource policy
 - ❗Default 4 days, max 14 days ❗
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/25b9498b-5ab1-4ebe-bcc9-dbf521f67862/Untitled.png)
+![Untitled](img/Untitled%20141.png)
 
 ## SQS Standard vs FIFO
 
@@ -4370,14 +4331,14 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 > *Delay queues provide an initial period of invisibility for messages. Predefine periods can ensure that processing of messages doesn't begin until this period has expired.*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/65630d37-9a99-406d-91d4-7b2367f1626f/Untitled.png)
+![Untitled](img/Untitled%20142.png)
 
 ## SQS Dead-Letter Queues
 
 > *Dead letter queues allow for messages which are causing repeated processing errors to be moved into a dead letter queue in this queue, different processing methods, diagnostic methods or logging methods can be used to identity message faults*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/543ab6c1-b030-4393-b8b2-8a8a202313e0/Untitled.png)
+![Untitled](img/Untitled%20143.png)
 
 ## Amazon Kinesis Data Streams
 
@@ -4396,7 +4357,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - can be increased to a maximum of **365 days** (additional cost)
 - Multiple consumers access data from that moving window
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2eb1af8a-4548-4e2f-a8d1-fdd2c7eb86d6/Untitled.png)
+    ![Untitled](img/Untitled%20144.png)
     
 
 ### SQS vs Kinesis
@@ -4425,7 +4386,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Can be integrated with Kinesis Data Stream
 - When? E.g. when you want to store data from a data stream past the rolling window
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/acfd35fc-caa7-44ec-b785-16f1c489b7d4/Untitled.png)
+![Untitled](img/Untitled%20145.png)
 
 ## Amazon Kinesis Data Analytics
 
@@ -4442,7 +4403,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - AWS Lambda
 - Kinesis Data Streams
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8187a79b-8df2-48b0-9353-d87b8a594a67/Untitled.png)
+![Untitled](img/Untitled%20146.png)
 
 ### When and Where
 
@@ -4463,7 +4424,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Can’t access directly via storage - only via APIs**
 - Integrates with other AWS services e.e.g **Rekognition** and **Connect**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ba730fe4-82ce-4c11-8af5-f5171b4e2be7/Untitled.png)
+![Untitled](img/Untitled%20147.png)
 
 ## Amazon Cognito - User and Identity Pools
 
@@ -4484,15 +4445,15 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture: User Pools
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/98d164c5-738a-493c-8c3f-2ac581c6106a/Untitled.png)
+![Untitled](img/Untitled%20148.png)
 
 ### Architecture: Identity Pools
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43b545f9-34f5-42f3-ade0-dad4a19039cb/Untitled.png)
+![Untitled](img/Untitled%20149.png)
 
 ### Architecture: User & Identity Pools
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/24e43f0a-127c-4f9e-bd6f-036bba16191d/Untitled.png)
+![Untitled](img/Untitled%20150.png)
 
 ## AWS Glue
 
@@ -4516,7 +4477,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### AWS Glue
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8d04bbb9-92a6-436c-8e0d-bd5e19923982/Untitled.png)
+![Untitled](img/Untitled%20151.png)
 
 ## Amazon MQ
 
@@ -4546,7 +4507,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - VPC Based - Not a public service - Private networking required
 - No AWS native integration - delivers activeMQ product which you manage
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2d819f3a-c554-404f-9194-ae0ff96970fc/Untitled.png)
+![Untitled](img/Untitled%20152.png)
 
 - SNS or SQS for most **new** implementations (default)
 - SNS or SQS if AWS integration is required (logging, permissions encryptions, service integration)
@@ -4568,7 +4529,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - Contact records from Salesforce → Redshift
     - Support Tickets from Zendesk → S3
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/02e936a2-5ac1-4699-a514-ee7c456bf2b5/Untitled.png)
+![Untitled](img/Untitled%20153.png)
 
 
 
@@ -4597,9 +4558,9 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### CloudFront Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f5ee76ff-27d2-40bd-bdb2-c518f17ae603/Untitled.png)
+![Untitled](img/Untitled%20154.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/477f6116-40a6-4a65-909c-4d365fd97cb9/Untitled.png)
+![Untitled](img/Untitled%20155.png)
 
 ## CloudFront Behaviors
 
@@ -4658,14 +4619,12 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5421de51-58aa-484c-a9f6-f26c004659f3/Untitled.png)
+![Untitled](img/Untitled%20156.png)
 
 ## CloudFront and SSL/TLS
 
-<aside>
 💡 **❗Generate or import in ACM in us-east-1 to use with CloudFront❗**
 
-</aside>
 
 - CloudFront Default Domain Name (CNAME)
 - SSL supported by default - ***.cloudfront.net** cert
@@ -4686,7 +4645,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Old browsers don’t support SNI**: CF charges extra for dedicated IP
     - 600$ / month
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d305d77-491b-4c19-8f7c-1596a1b239b6/Untitled.png)
+![Untitled](img/Untitled%20157.png)
 
 ## Origin Types and Architecture
 
@@ -4719,11 +4678,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - That OAI can be used in S3 Bucket Policies
 - DENY all BUT one or more OAI’s
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f168acc8-e657-49bc-9fad-20f5759bc592/Untitled.png)
+![Untitled](img/Untitled%20158.png)
 
 ### Securing Custom Origins
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be6a467b-006e-48bc-8870-1c536d9538e8/Untitled.png)
+![Untitled](img/Untitled%20159.png)
 
 ## CloudFront Private Distributions & Behavior -  Signed URLs & Cookies
 
@@ -4748,7 +4707,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Private Distributions
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4b5364d-2604-4e4f-9d07-3748788c7f20/Untitled.png)
+![Untitled](img/Untitled%20160.png)
 
 ## ****Lambda@Edge****
 
@@ -4761,7 +4720,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **Layers** are not supported
 - Different limits vs normal Lambda functions
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e5694ec-abd0-411e-81a8-8409f640dc40/Untitled.png)
+![Untitled](img/Untitled%20161.png)
 
 ### Lambda@Edge Use Cases
 
@@ -4825,9 +4784,9 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72ef78a6-a83b-4a5e-a1f7-7ff523240abf/Untitled.png)
+![Untitled](img/Untitled%20162.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b81f41fa-af94-46a3-b588-5900d6f8d673/Untitled.png)
+![Untitled](img/Untitled%20163.png)
 
 ## Egress-Only Internet Gateway
 
@@ -4842,7 +4801,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/79a43f4f-bc66-4cc8-bcf3-52d18bf0518d/Untitled.png)
+![Untitled](img/Untitled%20164.png)
 
 ## VPC Endpoints (Gateway)
 
@@ -4858,11 +4817,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Regional - **can’t access cross-region services**
 - **Prevent Leaky Buckets** - S3 Buckets can be set to private only by allowing access ONLY from a gateway endpoint
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77873611-58e9-4b17-9d20-26c3f1192f63/Untitled.png)
+![Untitled](img/Untitled%20165.png)
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/31310596-f159-4eb5-aaeb-733e5af29f4a/Untitled.png)
+![Untitled](img/Untitled%20166.png)
 
 ## ****VPC Endpoints (Interface)****
 
@@ -4891,7 +4850,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/93d4cea4-e8ab-4624-a086-16333a296425/Untitled.png)
+![Untitled](img/Untitled%20167.png)
 
 ## VPC Peering
 
@@ -4912,7 +4871,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a2c65eab-e783-4084-893b-559ad5ffa74a/Untitled.png)
+![Untitled](img/Untitled%20168.png)
 
 
 
@@ -4930,7 +4889,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - **iBGP** = Internal BGP - Routing within an AS
 - **eBGP** = External BGP - Routing between AS
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c99474c2-ba4c-4db9-a3b9-90b145deb9ce/Untitled.png)
+![Untitled](img/Untitled%20169.png)
 
 ## IPSec VPN Fundamentals
 
@@ -4940,7 +4899,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - It sets up **secure tunnels** across **insecure networks** between **two peers** (local and remote)
 - Provides authentication and encryption
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5d6200e-5e7b-4579-bd55-f47a52f8ea69/Untitled.png)
+![Untitled](img/Untitled%20170.png)
 
 - Remember - **symmetric encryption** is fast, but it’s a challenge to exchange keys securely
 - **Asymmetric encryption** is slow, but you can easily exchange public keys
@@ -4966,15 +4925,15 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### IKE Phase 1 Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b929dff6-f38d-4f80-9b03-37eca2dd2a0f/Untitled.png)
+![Untitled](img/Untitled%20171.png)
 
 ### IKE Phase 2 Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a03ea4e5-c2be-43f6-bf37-dcd4bc8d066d/Untitled.png)
+![Untitled](img/Untitled%20172.png)
 
 ### Route vs Policy Based
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/152ddc16-d9cc-4a67-85eb-24b7cf7e7510/Untitled.png)
+![Untitled](img/Untitled%20173.png)
 
 ## AWS Site-to-Site VPN
 
@@ -5000,15 +4959,15 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 - Dynamic VPN uses BGP
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/122a399f-9fab-454c-9411-b7b5f2645af0/Untitled.png)
+![Untitled](img/Untitled%20174.png)
 
 ### Architecture Partial HA
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/afc4f6c8-38a2-4765-b434-a8e225d6148b/Untitled.png)
+![Untitled](img/Untitled%20175.png)
 
 ### Architecture HA
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f604251e-ffbd-4a64-b579-8343c53f4227/Untitled.png)
+![Untitled](img/Untitled%20176.png)
 
 ## Direct Connect (DX) Concepts
 
@@ -5025,25 +4984,23 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### DX Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72cea4fd-7bd2-4ede-9a78-3857b16b9963/Untitled.png)
+![Untitled](img/Untitled%20177.png)
 
 ## Direct Connect (DX) Resilience
 
 > *This lesson steps through the architecture of a few resilient implementations of direct connect, starting with an overview of why the default implementation architecture of direct connect provides no resilience.*
 > 
 
-<aside>
 💡 **DX is a physical technology!**
 
-</aside>
 
 ### Good
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/091a4b34-56f0-4de5-926e-1bb164a3696e/Untitled.png)
+![Untitled](img/Untitled%20178.png)
 
 ### GREAT
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/079e2286-4041-481b-890a-283d787c8446/Untitled.png)
+![Untitled](img/Untitled%20179.png)
 
 ## AWS Transit Gateway (TGW)
 
@@ -5068,7 +5025,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/72455de1-9abe-4643-b1dd-6d8035aa3a36/Untitled.png)
+![Untitled](img/Untitled%20180.png)
 
 ## Storage Gateway - Volume
 
@@ -5084,7 +5041,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 - Primary location of data is on-prem
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3fcd2bf0-5e65-47f7-bdf2-f08f0adfd26c/Untitled.png)
+![Untitled](img/Untitled%20181.png)
 
 ### Storage GW Volume: Cached
 
@@ -5101,7 +5058,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - A **library** is 1+ **drive(s),** 1+ **loader(s)** and **slots**
 - Drive - library - shelf (anywhere but the library)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eff43dcd-956c-41c9-befd-90049407c144/Untitled.png)
+![Untitled](img/Untitled%20182.png)
 
 ## Storage Gateway - File Mode
 
@@ -5118,15 +5075,15 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture: Two-side
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d0d43206-b088-4e0e-b70d-6a5f3d6c11e7/Untitled.png)
+![Untitled](img/Untitled%20183.png)
 
 ### Architecture: Multiple Contributors
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4b69460-d82b-4ede-8a7c-73f0ce441bfa/Untitled.png)
+![Untitled](img/Untitled%20184.png)
 
 ### Architecture: Multiple Contributors and Replication
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be1b5e26-be37-44e1-9d29-8addf318d841/Untitled.png)
+![Untitled](img/Untitled%20185.png)
 
 ## Snowball & Snowmobile
 
@@ -5203,15 +5160,15 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 - Simple AD ↔ SAMBA 4
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0964265d-9284-4a98-9810-0d2a8dad8d21/Untitled.png)
+![Untitled](img/Untitled%20186.png)
 
 ### AWS Managed Microsoft AD Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/24ad892c-ee07-4698-b705-f3dbc554bf16/Untitled.png)
+![Untitled](img/Untitled%20187.png)
 
 ### AD Connector Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/18c43ad3-35ba-4098-b1dc-93bbc5a183ef/Untitled.png)
+![Untitled](img/Untitled%20188.png)
 
 ### Picking Between Modes
 
@@ -5241,7 +5198,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e98f19c8-9847-45ef-8987-311d6bcc2b0e/Untitled.png)
+![Untitled](img/Untitled%20189.png)
 
 ### DataSync Components
 
@@ -5268,7 +5225,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2bd1b28e-8a94-49ae-bae7-e0180025452a/Untitled.png)
+![Untitled](img/Untitled%20190.png)
 
 ### FSx Key Features and Benefits
 
@@ -5315,11 +5272,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Conceptually
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e635ac10-c279-4e5c-83b9-f84faffdfdb8/Untitled.png)
+![Untitled](img/Untitled%20191.png)
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c78fe78-9824-42a1-92d1-3c810633cd01/Untitled.png)
+![Untitled](img/Untitled%20192.png)
 
 ## AWS Transfer Family
 
@@ -5356,11 +5313,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8e997b37-9a50-462b-8768-8e05590e551f/Untitled.png)
+![Untitled](img/Untitled%20193.png)
 
 ### Endpoint Type
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3c75b4b-e7fb-41e4-91e1-7b4288973e23/Untitled.png)
+![Untitled](img/Untitled%20194.png)
 
 
 
@@ -5381,14 +5338,12 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - ❗Supports **automatic rotation** - this uses Lambda❗
 - ❗Directly integrates with some AWS Products (RDS)❗
 
-<aside>
 💡 **RDS, integration, secrets or rotation → Secrets Manager > Parameter Store!**
 
-</aside>
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c25380b-2ec8-45ae-b880-7ae7a9d2ccd4/Untitled.png)
+![Untitled](img/Untitled%20195.png)
 
 ## Application Layer (L7) Firewall
 
@@ -5397,11 +5352,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Normal Firewalls (Layer 3/4/5)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9c9cdb98-d613-4f9f-9500-c14af9d93854/Untitled.png)
+![Untitled](img/Untitled%20196.png)
 
 ### Application (Layer 7) Firewalls
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/22976da3-ea41-4479-a6d2-e7a7808cd6b5/Untitled.png)
+![Untitled](img/Untitled%20197.png)
 
 ## Web Application Firewall (WAF)
 
@@ -5411,7 +5366,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7fffbb34-a0f7-4e36-a183-9514362ad96c/Untitled.png)
+![Untitled](img/Untitled%20198.png)
 
 ### Web Access Control lists (WEBACL)
 
@@ -5506,7 +5461,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ecde684a-1564-4c5e-856c-469a9c01bc90/Untitled.png)
+![Untitled](img/Untitled%20199.png)
 
 ### CloudHSM Use Cases
 
@@ -5530,7 +5485,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Regional Service - supports cross-region and account aggregation
 - Changes can generate SNS notifications and near-real time events via EventBridge & Lambda
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f540befa-7a88-419c-ad58-315ca13e5188/Untitled.png)
+![Untitled](img/Untitled%20200.png)
 
 ## Amazon Macie
 
@@ -5546,7 +5501,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6525226d-248d-408d-aa93-e72e486ba4a1/Untitled.png)
+![Untitled](img/Untitled%20201.png)
 
 ### Identifiers
 
@@ -5598,7 +5553,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/402ccfc5-376b-4b09-b74a-0cf261700d3f/Untitled.png)
+![Untitled](img/Untitled%20202.png)
 
 
 
@@ -5616,9 +5571,9 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - If a stacks template is change physical resources are changed
 - If a stack is deleted, normally, the physical resources are deleted
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/19927831-e494-4da7-8fc3-26b8b16871e8/Untitled.png)
+![Untitled](img/Untitled%20203.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7b7b9d73-c06b-4257-8392-8e515840193d/Untitled.png)
+![Untitled](img/Untitled%20204.png)
 
 ## Template and Pseudo Parameters
 
@@ -5632,13 +5587,13 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Template Parameters
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/260a6fbf-2a52-4ed7-b308-4157fb44032c/Untitled.png)
+![Untitled](img/Untitled%20205.png)
 
 ### Pseudo Parameters
 
 - **`AWS::Region` matches region template is used in**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5d6bfaf6-4f09-404f-b6d5-9f00badd2178/Untitled.png)
+![Untitled](img/Untitled%20206.png)
 
 ## Intrinsic Functions
 
@@ -5658,23 +5613,23 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### `Ref` and `Fn::GetAtt`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c5bc5e0-295a-4f84-9d07-3246aa63e9ae/Untitled.png)
+![Untitled](img/Untitled%20207.png)
 
 ## `Fn::GetAZs` and `Fn::Select`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91f35adf-c8a4-4013-b591-4bf43a46f029/Untitled.png)
+![Untitled](img/Untitled%20208.png)
 
 ### `Fn::Join` and `Fn::Split`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d91c0b31-5d09-41f1-b8c2-c8e090a55f71/Untitled.png)
+![Untitled](img/Untitled%20209.png)
 
 ### `Fn::Base64` and `Fn::Sub`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49133936-c983-4991-833a-c0f693240939/Untitled.png)
+![Untitled](img/Untitled%20210.png)
 
 ### `FN::Cidr`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/acd8ab80-ff65-426f-af3a-387e02c7c912/Untitled.png)
+![Untitled](img/Untitled%20211.png)
 
 ## `Mappings`
 
@@ -5688,7 +5643,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - Common use - retrieve AMI for given region & architecture
 - **Improve template portability** ❗
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8089e404-07f3-4cf4-bb98-8c4abe1c9a43/Untitled.png)
+![Untitled](img/Untitled%20212.png)
 
 ## `Outputs`
 
@@ -5701,7 +5656,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - accessible from a parent stack when using **nesting** ❗
     - can be exported, allowing **cross-stack references** ❗
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ef2c7783-2655-4e22-a5db-74e707e430ce/Untitled.png)
+![Untitled](img/Untitled%20213.png)
 
 ## `Conditions`
 
@@ -5715,7 +5670,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - e.g. ONEAZ, TWOAZ, THREEAZ - how many AZs to create resources in
 - e.g. PROD, DEV - control the size of instances created in a stack
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7a7b8819-fbda-476a-9e71-264090aab857/Untitled.png)
+![Untitled](img/Untitled%20214.png)
 
 ## `DependsOn`
 
@@ -5729,7 +5684,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - If resources B and C depends on A
     - both wait for A to complete before starting
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/38a8d27b-043d-49f8-840e-b9cd5a6cc942/Untitled.png)
+![Untitled](img/Untitled%20215.png)
 
 ## `WaitCondition`, `CreationPolicy` and cfn-signal
 
@@ -5755,11 +5710,11 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### CF `CreationPolicy`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/022a9a4c-1013-4df3-9bae-1c7c05f5c96d/Untitled.png)
+![Untitled](img/Untitled%20216.png)
 
 ### CF `WaitCondition`
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/650e53e2-ebe7-4c27-99aa-b62e0cd52630/Untitled.png)
+![Untitled](img/Untitled%20217.png)
 
 ## Nested Stacks
 
@@ -5788,7 +5743,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Nested Stacks
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4486f589-2b68-4714-9db9-4540d6095858/Untitled.png)
+![Untitled](img/Untitled%20218.png)
 
 ## Cross-Stack References
 
@@ -5800,10 +5755,8 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 > *They can be exported, and then using the !ImportValue intrinsic function, referenced from another stack.*
 > 
 
-<aside>
 💡 **Nested Stacks allow you to reuse templates - Cross-Stack References allow you to reuse actual physical resources**
 
-</aside>
 
 - Outputs are normally not visible from other stacks
 - Nesten stacks can reference them
@@ -5813,7 +5766,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/602729d8-fef3-4659-a888-39f8f12208cb/Untitled.png)
+![Untitled](img/Untitled%20219.png)
 
 ## StackSets
 
@@ -5840,7 +5793,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/860f33ab-4956-4814-9db5-2f658897ca25/Untitled.png)
+![Untitled](img/Untitled%20220.png)
 
 ## `DeletionPolicy`
 
@@ -5859,7 +5812,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Visual
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6824fc7c-53ac-48fe-ba7a-6c525eb985ce/Untitled.png)
+![Untitled](img/Untitled%20221.png)
 
 ## Stack Roles
 
@@ -5877,7 +5830,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - This lets you implement role reparation
 - The identity creating the stack **doesn’t need resource permissions** - only **PassRole**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b053918c-a7d8-4fb7-82ec-b6613138b3fd/Untitled.png)
+![Untitled](img/Untitled%20222.png)
 
 ## CloudFormationInit (CFN-INIT)
 
@@ -5893,7 +5846,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - vs Desired State - **WHAT (cfn-init)**
 - **cfn-init** helper scripts - installed on EC2 OS
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8608e160-75f3-4abb-ab46-33dc6a921879/Untitled.png)
+![Untitled](img/Untitled%20223.png)
 
 ## cfn-hup
 
@@ -5906,7 +5859,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - running configurable actions when a change is detected
 - UpdateStack → updated config on EC2 instances
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ce99ee17-e159-4e60-ac41-e9705014a3e4/Untitled.png)
+![Untitled](img/Untitled%20224.png)
 
 ## ChangeSets
 
@@ -5920,7 +5873,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
     - multiple different versions (lots of change sets)
 - Chosen changes can be applied by **executing the change set**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9a8abac-23ed-4b13-9121-16dcc937e20a/Untitled.png)
+![Untitled](img/Untitled%20225.png)
 
 ## Custom Resources
 
@@ -5932,7 +5885,7 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 - ❗Custom Resources let **CFN integrate** with anything it **doesn’t yet**, or **doesn’t natively** support ❗
 - ❗Passes data to something, gets data back from something❗
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/556e1de5-2de4-45f5-a2d2-e1bbb51c88d2/Untitled.png)
+![Untitled](img/Untitled%20226.png)
 
 
 
@@ -5966,18 +5919,18 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 > Database-(table)-as-a-Service
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ccc4a830-3b6f-4af7-8ea5-8ec40401276e/Untitled.png)
+![Untitled](img/Untitled%20227.png)
 
 ### On-Demand Backups
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/09fd44b0-5bac-4033-be69-bf32b1f56508/Untitled.png)
+![Untitled](img/Untitled%20228.png)
 
 ### Point-in-time Recovery (PITR)
 
 > Not enabled by default
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0e8cea59-6354-40e9-8f56-f2c1354bd43e/Untitled.png)
+![Untitled](img/Untitled%20229.png)
 
 ## Operations, Consistency and Performance
 
@@ -5993,21 +5946,21 @@ https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html
 
 ### Query
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/001f8227-4893-4960-97e6-45013949b825/Untitled.png)
+![Untitled](img/Untitled%20230.png)
 
 ### Scan
 
 > Least efficient operation in DynamoDB, but also most flexible
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aaeb0bb4-bbe3-4b18-b8fc-ad59285bdacd/Untitled.png)
+![Untitled](img/Untitled%20231.png)
 
 ### Consistency Model
 
 > **Eventually** or **strong**/immediate consistency
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b94c4fb-fb1c-4e83-9b18-5b31be1488b0/Untitled.png)
+![Untitled](img/Untitled%20232.png)
 
 ### WCU Calculation
 
@@ -6061,7 +6014,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
     - Shared Capacity Settings with the table
 - Attributes - ALL, KEYS_ONLY & INCLUDE
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/67f5def4-2b44-41ca-bf48-1cee34876472/Untitled.png)
+![Untitled](img/Untitled%20233.png)
 
 ### Global Secondary Indexes (GSI)
 
@@ -6072,7 +6025,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - GSI’s have their own **RCU** and **WCU** allocations ❗
 - Attributes - ALL, KEYS_ONLY & INCLUDE
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/109d7fed-01a9-4cae-b9ba-41b39c1af7cb/Untitled.png)
+![Untitled](img/Untitled%20234.png)
 
 ### LSI and GSI Considerations
 
@@ -6111,7 +6064,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
     - OLD_IMAGE
     - NEW_AND_OLD_IMAGES
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3d71f063-ce11-42a5-8258-b8679653fe7c/Untitled.png)
+    ![Untitled](img/Untitled%20235.png)
     
 
 ### Trigger Concepts
@@ -6125,7 +6078,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - **Reporting & Analytics**
 - **Aggregation, Messaging** or **Notifications**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a4c9cfdb-e459-4f25-9138-9626c4362e8e/Untitled.png)
+![Untitled](img/Untitled%20236.png)
 
 ## Global Tables
 
@@ -6147,11 +6100,11 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### Traditional Caches vs DAX
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9b3a4d52-5fb8-4e0d-9ab2-72d4dc95617b/Untitled.png)
+![Untitled](img/Untitled%20237.png)
 
 ### DAX Architecture
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3bca1d6e-b86d-4b39-90db-d64bb8ced71f/Untitled.png)
+![Untitled](img/Untitled%20238.png)
 
 ### DAX Considerations
 
@@ -6168,7 +6121,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 > *Amazon DynamoDB Time to Live (TTL) allows you to define a per-item timestamp to determine when an item is no longer needed. Shortly after the date and time of the specified timestamp, DynamoDB deletes the item from your table without consuming any write throughput. TTL is provided at no extra cost as a means to reduce stored data volumes by retaining only the items that remain current for your workload’s needs*
 > 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a4b66d1e-6beb-4eb2-bb8e-46bb1b034be5/Untitled.png)
+![Untitled](img/Untitled%20239.png)
 
 ## Amazon Athena
 
@@ -6184,7 +6137,7 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - Schema translates data → relational-like when read
 - Output can be sent to **other services**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8859e9c6-2773-4e0b-972c-7a79a6e0f159/Untitled.png)
+![Untitled](img/Untitled%20240.png)
 
 ### Athena Considerations
 
@@ -6209,11 +6162,11 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - Can be used to store **Session Data** (**Stateless** Servers)❗
 - **Requires application code changes!!**❗
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ffe3771b-97b8-4245-b4d9-a2219806dbd0/Untitled.png)
+![Untitled](img/Untitled%20241.png)
 
 ### Session State Data
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9beb4014-d27c-43cb-a68c-8627aaf959db/Untitled.png)
+![Untitled](img/Untitled%20242.png)
 
 ### Redis vs MemcacheD
 
@@ -6260,11 +6213,11 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 - Redshift **Enhanced VPC Routing** - VPC Networking ❗
     - Routing based on VPC/SG etc
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e75d8822-6f0d-4245-95bb-e6d6ceb1af58/Untitled.png)
+![Untitled](img/Untitled%20243.png)
 
 ## Redshift Resilience and Recovery
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40e5b31b-ea11-4a22-803d-fe072a0e6a4e/Untitled.png)
+![Untitled](img/Untitled%20244.png)
 
 
 
@@ -6465,11 +6418,11 @@ Calculate **RCU per item** - ROUND UP! ITEM.SIZE / 4KB = 1
 
 ### AWS w/o Local Zones
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0494a5fd-8a71-4d2b-b87e-585e47c86ec9/Untitled.png)
+![Untitled](img/Untitled%20245.png)
 
 ### AWS w/ Local Zones
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/98f09c59-7c0d-4dcc-98e5-cfc90f60f735/Untitled.png)
+![Untitled](img/Untitled%20246.png)
 
 
 
